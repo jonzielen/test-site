@@ -5,11 +5,22 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var db = require('./app/db');
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var test = require('./routes/test');
+var feeds = require('./routes/feeds');
 
 var app = express();
+
+// Connect to Mongo on start
+db.connect('mongodb://localhost:27017/test', function(err) {
+  if (err) {
+    console.log('Unable to connect to Mongo.');
+    process.exit(1);
+  }
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,6 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/test', test);
+app.use('/feeds', feeds);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
