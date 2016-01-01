@@ -1,6 +1,15 @@
 extends layout
 
+block vars
+  - var description = 'Welcome to my page'
+  - var additionalCssFiles = []
+  - var additionalJsFiles = ['https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js', 'controllers/articlesController.js']
+
 block content  
     h1= title
-    h2 The new Zielenkievicz.com
-    img(src="images/computer-cat-472.jpg") 
+    
+    div(ng-controller="ArticlesCtrl")
+        ul
+            li(ng-repeat="article in articles")
+                a(href="{{article.url}}", target="_blank"){{article.title}}
+                p {{article.desc}}

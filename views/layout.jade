@@ -1,13 +1,18 @@
 doctype html
-html(class="no-js" lang="en")
+html(class="no-js" lang="en" ng-app="siteApp")
   head
+    block vars
     meta(charset="utf-8")
     meta(http-equiv="x-ua-compatible" content="ie=edge")
-    meta(name="description" content= pageDescription)
+    meta(name='description', content='#{description}')
     meta(name="viewport" content="width=device-width, initial-scale=1")
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
-    link(href='/images/favicon.ico', rel='shortcut icon', type='image/vnd.microsoft.icon')  
+    link(href='/images/favicon.ico', rel='shortcut icon', type='image/vnd.microsoft.icon')
+    if additionalCssFiles
+        each file in additionalCssFiles
+            link(rel='stylesheet', href='#{file}')
+     
   body(class="page #{bodyClass}")
     div.wrapper
         header
@@ -15,6 +20,9 @@ html(class="no-js" lang="en")
 
         div.main
             block content
-
+            
         footer
             include ./includes/footer.jade
+    if additionalJsFiles
+        each file in additionalJsFiles
+            script(type='text/javascript', src='#{file}')
