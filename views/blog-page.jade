@@ -13,5 +13,7 @@ block content
             li(ng-repeat="post in posts")
                 a(href="/blog/{{post.url}}") {{post.title}}
                 p {{post.meta}}
-                p {{post.tags}}
-                    
+                ul
+                    li(ng-repeat="tag in post.tags")
+                        a(href="/blog/tag/{{tag}}")
+                            {{tag}}
