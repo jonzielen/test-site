@@ -8,6 +8,7 @@ body {
 }
 .wrapper {
     max-width: 770px;
+    min-height: 400px;
     padding: 15px;
     border: 1px solid #000;
     border-radius: 6px;
@@ -38,4 +39,13 @@ img {
 }
 footer {
     text-align: center;
+}
+
+.ng-enter {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.ng-enter.ng-enter-active {
+    opacity: 1;
 }
