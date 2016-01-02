@@ -11,6 +11,7 @@ block content
     div(ng-controller="BlogPostsCtrl")
         ul
             li(ng-repeat="post in posts")
-                p {{post.name.first}} {{post.name.last}}
-                p {{post.bio}}
-                p {{post.age}}
+                a(href="/blog/{{post.url}}") {{post.title}}
+                p {{post.meta}}
+                p {{post.tags}}
+                    

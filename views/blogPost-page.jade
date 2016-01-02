@@ -1,0 +1,12 @@
+extends layout
+
+block vars
+  - var description = meta
+  - var additionalCssFiles = []
+  - var additionalJsFiles = []
+
+block content  
+    h1= title
+    h2= date
+    h3= tags
+    div.main!= body
