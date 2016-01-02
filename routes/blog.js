@@ -19,7 +19,7 @@ router.get('/:url', function(req, res, next) {
         res.render('blogPost-page', {
             meta: post.meta,
             title: post.title,
-            date: post.date,
+            date: post.date.toDateString(),
             tags: post.tags,
             body: post.body
         });
