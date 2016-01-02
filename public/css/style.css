@@ -49,3 +49,37 @@ footer {
 .ng-enter.ng-enter-active {
     opacity: 1;
 }
+
+.blogPostPreview {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.blogPostPreview__item {
+}
+
+.padding-0 {
+    padding: 0;
+}
+.padding-1 {
+    padding:1em;
+}
+
+.padding-2 {
+    padding: 2em;
+}
+
+.tags-list {
+    padding: 0;
+    margin: 0;
+}
+
+.tag {
+    display: inline-block;
+    padding: 0;
+}
+
+.tag:not(:first-of-type) {
+    margin-left: 10px;
+}

@@ -9,11 +9,12 @@ block content
     h1= title
     
     div(ng-controller="BlogPostsCtrl")
-        ul
-            li(ng-repeat="post in posts")
+        ul.blogPostPreview
+            li.blogPostPreview__item.padding-1(ng-repeat="post in posts")
                 a(href="/blog/{{post.url}}") {{post.title}}
                 p {{post.meta}}
-                ul
-                    li(ng-repeat="tag in post.tags")
+                ul.tags-list
+                    li.tag Tags:
+                    li.tag(ng-repeat="tag in post.tags")
                         a(href="/blog/tag/{{tag}}")
                             {{tag}}
