@@ -15,12 +15,13 @@ router.get('/', function(req, res, next) {
 
 /* GET blog post page. */
 router.get('/:url', function(req, res, next) {
-    var url = req.params.url,
-        collection = db.get().collection('blogPosts');
+    var url = req.params.url;
+    var collection = db.get().collection('blogPosts');
 
     collection.findOne({"url":url}, function(err, post) {
-        var tagsArray = s2a.tags(post.tags, ', ');
+        if (err || !post) return res.render('404');
 
+        var tagsArray = s2a.tags(post.tags, ', ');
         res.render('blogPost-page', {
             meta: post.meta,
             title: post.title,
@@ -33,8 +34,9 @@ router.get('/:url', function(req, res, next) {
 
 // /* GET blog tags page. */
 router.get('/tags/:url', function(req, res, next) {
+    var tags = req.params.url || '';
     res.render('blogTags-page', {
-        title: 'Posts with the tag: '+req.params.url
+        title: 'Posts with the tag: '+ tags
     });
 });
 
