@@ -25,18 +25,18 @@ router.get('/:url', function(req, res, next) {
             meta: post.meta,
             title: post.title,
             date: dateFormat.longForm(post.date),
-            tags: bt.blogify(tagsArray, '/blog/tag/'),
+            tags: bt.blogify(tagsArray, '/blog/tags/'),
             body: post.body
         });
     });
 });
 
 // /* GET blog tags page. */
-// router.get('/tags', function(req, res, next) {
-//     res.render('blogTags-page', {
-//         title: 'need to figure this out'
-//     });
-// });
+router.get('/tags/:url', function(req, res, next) {
+    res.render('blogTags-page', {
+        title: 'Posts with the tag: '+req.params.url
+    });
+});
 
 // /* GET blog page. */
 // router.get('/code-example', function(req, res, next) {

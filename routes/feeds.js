@@ -3,11 +3,22 @@ var router = express.Router();
 
 var db = require('../app/db');
 
-/* GET feeds listing. */
+/* GET blog listing. */
 router.get('/blog', function(req, res, next) {
     var collection = db.get().collection('blogPosts');
 
     collection.find().toArray(function(err, post) {
+        res.json(post);
+    });
+});
+
+/* GET blog tags listing. */
+router.get('/blog/tags/:url', function(req, res, next) {
+    var collection = db.get().collection('blogPosts');
+    // create an index for text search to work: db.blogPosts.createIndex({"tags":"text"})
+    var query = {$text: {$search: req.params.url}};
+
+    collection.find(query).toArray(function(err, post) {
         res.json(post);
     });
 });
