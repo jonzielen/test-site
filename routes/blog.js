@@ -38,11 +38,4 @@ router.get('/tags/:url', function(req, res, next) {
     });
 });
 
-// /* GET blog page. */
-// router.get('/code-example', function(req, res, next) {
-//     res.render('blog-page', {
-//         title: 'need to figure this out'
-//     });
-// });
-
 module.exports = router;
