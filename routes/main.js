@@ -6,20 +6,14 @@ router.get('/', function(req, res, next) {
   res.render('homepage', { title: 'COMING SOON!!' });
 });
 
-/* GET articles page. */
-router.get('/articles', function(req, res, next) {
-  res.render('articles-page', {
-      title: 'Articles Page'
-  });
+/* GET contact page. */
+router.get('/contact', function(req, res, next) {
+  res.render('contact-page', { title: 'Contact Jon!' });
 });
 
-/* GET articles tag page. */
-router.get('/articles/tags/:url', function(req, res, next) {
-  res.render('articlesTags-page', {
-      title: 'Articles with the tag: '+req.params.url
-  });
+/* GET resume page. */
+router.get('/resume', function(req, res, next) {
+  res.render('resume-page', { title: 'Jon\'s Resume!' });
 });
-
-
 
 module.exports = router;

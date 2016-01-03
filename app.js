@@ -9,6 +9,7 @@ var db = require('./app/db');
 
 var routes = require('./routes/main');
 var blog = require('./routes/blog');
+var articles = require('./routes/articles');
 var feeds = require('./routes/feeds');
 
 var app = express();
@@ -35,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/blog', blog);
+app.use('/articles', articles);
 app.use('/feeds', feeds);
 
 // catch 404 and forward to error handler
