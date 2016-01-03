@@ -16,7 +16,6 @@ var monthMap = [
 var UpdatedDate = {
     longForm: function(d) {
         return monthMap[d.getMonth()]+' '+d.getDate() +', '+d.getFullYear();
-        //return ;
     }
 };
 
