@@ -32,4 +32,15 @@ router.get('/article', function(req, res, next) {
     });
 });
 
+/* GET articles tags listing. */
+router.get('/articles/tags/:url', function(req, res, next) {
+    var collection = db.get().collection('articles');
+    // create an index for text search to work: db.articles.createIndex({"tags":"text"})
+    var query = {$text: {$search: req.params.url}};
+
+    collection.find(query).toArray(function(err, post) {
+        res.json(post);
+    });
+});
+
 module.exports = router;

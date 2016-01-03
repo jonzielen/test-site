@@ -13,4 +13,13 @@ router.get('/articles', function(req, res, next) {
   });
 });
 
+/* GET articles tag page. */
+router.get('/articles/tags/:url', function(req, res, next) {
+  res.render('articlesTags-page', {
+      title: 'Articles with the tag: '+req.params.url
+  });
+});
+
+
+
 module.exports = router;
