@@ -11,7 +11,9 @@ siteApp.controller('BlogPostsCtrl', function($scope, $http) {
             obj.tags = splitTagsToArray(obj.tags)
         };
 
-        data.map(getTags);
+        data.map(function getTags(obj) {
+            obj.tags = splitTagsToArray(obj.tags)
+        });
 
         $scope.posts = data;
     });
