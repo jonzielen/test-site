@@ -56,15 +56,17 @@ footer {
     opacity: 1;
 }
 
-.blogPostPreview {
+.list-standard {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-.blogPostPreview__item {
+.list-standard__item {
 }
-
+.list-standard__item:not(:last-of-type) {
+    border-bottom:1px solid #ccc;
+}
 .padding-0 {
     padding: 0;
 }

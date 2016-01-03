@@ -7,11 +7,13 @@ block vars
 
 block content  
     h1= title
+    p.lead Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dignissim ex eros, et ornare lacus ultricies eget. Nullam vel ornare metus. Vivamus semper ultrices orci, et elementum quam ultricies sit amet. Ut malesuada ipsum ut pellentesque pellentesque. Phasellus tellus felis, feugiat quis sagittis a, luctus a dui. Nunc justo velit, iaculis vel tempor sit amet, suscipit ut urna.
     
     div(ng-controller="BlogPostsCtrl")
-        ul.blogPostPreview
-            li.blogPostPreview__item.padding-1(ng-repeat="post in posts")
-                a(href="/blog/{{post.url}}") {{post.title}}
+        ul.list-standard
+            li.list-standard__item.padding-1(ng-repeat="post in posts")
+                h2
+                    a(href="/blog/{{post.url}}") {{post.title}}
                 p {{post.meta}}
                 ul.tags-list
                     li.tag Tags:
