@@ -1,5 +1,6 @@
 var s2a = require('../libs/stringToArray');
 var bt = require('../libs/blogTags');
+var dateFormat = require('../libs/dateFormater');
 var express = require('express');
 var router = express.Router();
 
@@ -23,7 +24,7 @@ router.get('/:url', function(req, res, next) {
         res.render('blogPost-page', {
             meta: post.meta,
             title: post.title,
-            date: post.date.toDateString(),
+            date: dateFormat.longForm(post.date),
             tags: bt.blogify(tagsArray, '/blog/tag/'),
             body: post.body
         });
